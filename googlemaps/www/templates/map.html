@@ -1,0 +1,36 @@
+<ion-view>
+<ion-content>
+<div ng-app="mapApp" id="map" >
+	<ng-map center="41.876,-87.624" zoom="15" map-type-id="TERRAIN" style="display:block; width: 90%; height:90%;">
+	<kml-layer url="http://plaza.cloud.runaid.com.ar/zips/morro2.kml?1"></kml-layer>
+	<div ng-repeat="position in positions">
+		<marker id="marker{{position.id}}" position="[{{position.latitud}},{{position.longitud}}]" title="{{position.nombre}}"
+		on-click="map.showInfoWindow({{position.id}})">
+		<info-window id="{{position.id}}" max-width="200">
+		<div id="bodyContent">
+			<p>
+				<ul>
+					<li><b>Nombre:</b> {{position.nombre}}</li>
+					<br>
+					<li><b>Latitud:</b> {{position.latitud}}</li>
+					<br>
+					<li><b>Longitud:</b> {{position.longitud}}</li>
+					<br>
+					<li><b>Descripcion:</b> {{position.descripcion}}</li>
+					<br>
+					<li><b>Tipo Nodo:</b> {{position.tipoNodo}}</li>
+				</ul>
+			</p>
+
+		</div>
+		</info-window>
+		</marker>
+	</div>
+	</ng-map>
+</div>
+
+<input type="button" id="algo" onClick="map.clearMarkers()" value="algo para ver"/>
+asdasdasdasd
+</ion-content>
+</ion-view>
+    
